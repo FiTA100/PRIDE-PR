@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Скачать — PRIDE RP</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0c1445, #1a237e);
+      color: white;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    #snow { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
+    header {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px; color:white;
+    }
+    .logo {
+      font-size:28px; font-weight:700; letter-spacing:2px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
+    }
+    .back-link {
+      color: #bbdefb;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #e3f2fd;
+    }
+    .download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .btn-download {
+      width: 180px;
+      padding: 14px 0;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .google { background: linear-gradient(to bottom, #4285F4, #3367D6); }
+    .apple { background: linear-gradient(to bottom, #000000, #333); }
+    .apk { background: linear-gradient(to bottom, #FF9800, #F57C00); }
+    .note {
+      margin-top: 30px;
+      color: #ffcc80;
+      font-size: 16px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #90a4ae;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 50px;
+    }
+    @media (max-width: 600px) {
+      .download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn-download {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="snow"></div>
+
+  <header>
+    <div class="logo">PRIDE RP</div>
+    <a href="index.html" class="back-link">← Назад</a>
+  </header>
+
+  <main>
+    <h1>Выбери платформу</h1>
+    
+    <div class="download-buttons">
+      <button class="btn-download google" onclick="alert('Google Play — в разработке! Следи за новостями.')">Google Play</button>
+      <button class="btn-download apple" onclick="alert('App Store — в разработке! Следи за новостями.')">App Store</button>
+      <button class="btn-download apk" onclick="alert('APK — скоро! Подпишись на Discord.')">APK (Android)</button>
+    </div>
+
+    <p class="note">
+      ⚠️ Приложения находятся в разработке.  
+      Подпишись на наш Discord, чтобы первым узнать о релизе!
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2025 PRIDE RP. Все права защищены.</p>
+  </footer>
+
+  <script>
+    // Снег (тот же эффект, что и на главной)
+    const snow = document.getElementById('snow');
+    for (let i = 0; i < 60; i++) {
+      const flake = document.createElement('div');
+      flake.innerHTML = '❄';
+      flake.style.position = 'absolute';
+      flake.style.top = '-20px';
+      flake.style.left = Math.random() * 100 + 'vw';
+      flake.style.fontSize = (Math.random() * 14 + 10) + 'px';
+      flake.style.opacity = Math.random();
+      flake.style.color = 'white';
+      flake.style.pointerEvents = 'none';
+      flake.style.zIndex = '-1';
+      flake.style.animation = `fall ${Math.random() * 5 + 5}s linear infinite`;
+      flake.style.animationDelay = Math.random() * 5 + 's';
+      snow.appendChild(flake);
+    }
+    document.head.innerHTML += `<style>@keyframes fall { to { transform: translateY(105vh) rotate(360deg); opacity:0; } }</style>`;
+  </script>
+</body>
+</html>
